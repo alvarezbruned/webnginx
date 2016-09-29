@@ -14,10 +14,10 @@ RUN \
   apt-get install -y build-essential && \
   apt-get install -y software-properties-common && \
   apt-get install -y byobu curl man unzip nano wget && \
-  rm -rf /var/lib/apt/lists/* \
   apt-get -y install mysql-client && \
   apt-get -y install postgresql-client && \
-  apt-get -y install wget
+  apt-get -y install wget && \
+  rm -rf /var/lib/apt/lists/*
 
 # Set environment variables.
 ENV HOME /root
