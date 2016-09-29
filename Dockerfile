@@ -13,8 +13,11 @@ RUN \
   apt-get -y upgrade && \
   apt-get install -y build-essential && \
   apt-get install -y software-properties-common && \
-  apt-get install -y byobu curl git htop man unzip vim wget && \
-  rm -rf /var/lib/apt/lists/*
+  apt-get install -y byobu curl man unzip nano wget && \
+  rm -rf /var/lib/apt/lists/* \
+  apt-get -y install mysql-client && \
+  apt-get -y install postgresql-client && \
+  apt-get -y install wget
 
 # Set environment variables.
 ENV HOME /root
@@ -37,6 +40,7 @@ RUN \
 
 # Define working directory.
 WORKDIR /etc/nginx
+RUN apt-get clean
 
 # Copy all config files
 #COPY ./config/default.conf /etc/nginx/conf.d/default.conf
