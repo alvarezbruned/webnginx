@@ -4,20 +4,15 @@
 # https://github.com/dockerfile/ubuntu
 #
 
-FROM ubuntu:15.04
+FROM ubuntu:14.04
 
 # Install.
 RUN \
-  sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
   apt-get update && \
-  apt-get -y upgrade && \
-  apt-get install -y build-essential && \
   apt-get install -y software-properties-common && \
-  apt-get install -y byobu curl man unzip nano wget && \
   apt-get -y install mysql-client && \
   apt-get -y install postgresql-client && \
-  apt-get -y install wget && \
-  rm -rf /var/lib/apt/lists/*
+  apt-get -y install wget
 
 # Set environment variables.
 ENV HOME /root
